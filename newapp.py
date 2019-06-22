@@ -2,23 +2,18 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
-# creating a class
+
+EnrollNo = input("Enter Enrollment Number: ")
+Password = input("Enter Password: ")
 
 
 class ParulBot:
-    def __init__(self, username, password):
-        # constructor
-        self.username = username
-        self.password = password
-        self.driver = webdriver.Firefox()
 
-    # closing of browser is not necessary but still if you want to..
-    def closeBrowser(self):
-        self.driver.close()
+    # visit link about how to install chromedriver(https://sites.google.com/a/chromium.org/chromedriver/downloads)
+    driver = webdriver.Chrome("C:/chromedriver")
 
-    #   login function
     def login(self):
-        # calling our driver to open firefox
+        # calling our driver to open Chrome
         driver = self.driver
         driver.get("http://180.211.119.163:8081/StudentPanel/")
         time.sleep(2)
@@ -26,13 +21,10 @@ class ParulBot:
         # here we use xpath method to find username and password box
         user_element = driver.find_element_by_xpath(
             "//input[@name='txtEnrollmentNo']")
-        user_element.clear()
-        user_element.send_keys(self.username)
+        user_element.send_keys(EnrollNo)
         password_element = driver.find_element_by_xpath(
             "//input[@name='txtPassword']")
-        password_element.clear()
-        password_element.send_keys(self.password)
-        password_element.send_keys(Keys.RETURN)
+        password_element.send_keys(Password)
         time.sleep(2)
 
     # to go to attendance page after signing in
@@ -48,8 +40,6 @@ class ParulBot:
 # "//li[starts-with(@id, 'ctl00_li_student_Attendance')]"
 # "//a[@href='TTM_Attendance/TTM_Attendance_StudentAttendance.aspx']"
 
-
-shaswatPU = ParulBot(" enter your enrollment number ",
-                     " enter your password here ")
+shaswatPU = ParulBot()
 shaswatPU.login()
 shaswatPU.attendance()
