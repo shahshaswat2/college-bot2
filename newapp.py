@@ -2,10 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
-
 EnrollNo = input("Enter Enrollment Number: ")
 Password = input("Enter Password: ")
-
 
 class ParulBot:
 
