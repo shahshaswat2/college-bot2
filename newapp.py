@@ -11,6 +11,7 @@ class ParulBot:
         self.username = username
         self.password = password
         self.driver = webdriver.Firefox()
+        # self.driver = webdriver.Chrome() (remove this comment if you want to use chromedriver)
 
     # closing of browser is not necessary but still if you want to..
     def closeBrowser(self):
@@ -33,7 +34,7 @@ class ParulBot:
         password_element.clear()
         password_element.send_keys(self.password)
         password_element.send_keys(Keys.RETURN)
-        time.sleep(2)
+        time.sleep(5)
 
     # to go to attendance page after signing in
     def attendance(self):
@@ -49,7 +50,7 @@ class ParulBot:
 # "//a[@href='TTM_Attendance/TTM_Attendance_StudentAttendance.aspx']"
 
 
-shaswatPU = ParulBot(" enter your enrollment number ",
-                     " enter your password here ")
+shaswatPU = ParulBot("your roll no",
+                     "password ")
 shaswatPU.login()
 shaswatPU.attendance()
