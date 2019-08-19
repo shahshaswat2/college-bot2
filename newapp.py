@@ -1,8 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-
-# creating a class
+# creating class
 
 
 class ParulBot:
@@ -13,13 +12,11 @@ class ParulBot:
         self.driver = webdriver.Firefox()
         # self.driver = webdriver.Chrome() (remove this comment if you want to use chromedriver)
 
-    # closing of browser is not necessary but still if you want to..
-    def closeBrowser(self):
-        self.driver.close()
+    # visit link about how to install chromedriver(https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
-    #   login function
+    # login function
     def login(self):
-        # calling our driver to open firefox
+        # calling our driver to open web browser
         driver = self.driver
         driver.get("http://180.211.119.163:8081/StudentPanel/")
         time.sleep(2)
@@ -50,7 +47,7 @@ class ParulBot:
 # "//a[@href='TTM_Attendance/TTM_Attendance_StudentAttendance.aspx']"
 
 
-shaswatPU = ParulBot("your roll no",
-                     "password ")
+shaswatPU = ParulBot(" enter your enrollment no",
+                     " enter your password")
 shaswatPU.login()
 shaswatPU.attendance()
