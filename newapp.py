@@ -51,3 +51,5 @@ shaswatPU = ParulBot(" enter your enrollment no",
                      " enter your password")
 shaswatPU.login()
 shaswatPU.attendance()
+
+# the pumis website has been updated, this may or may not work anymore. Requires few changes in the xpath.
